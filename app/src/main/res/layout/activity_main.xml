@@ -4,12 +4,59 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:orientation="vertical">
 
     <TextView
         style="@style/TitleName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/title_name" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:inputType="text"
+        android:autofillHints="jay"
+        android:id="@+id/editName"
+        android:hint="@string/EditTextHint"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/done"
+        android:id= "@+id/doneButton"
+        android:layout_gravity="center_horizontal"/>
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text=""
+        android:id= "@+id/nameText"
+        android:layout_gravity="center_horizontal"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat = "@android:drawable/btn_star_big_on"
+        style="@style/bigStarOn"
+        android:contentDescription="@string/star" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/bio"
+                android:lineSpacingMultiplier="1.2"/>
+            <!--lineSpacingMultiplier manager spaces b/w lines -->
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>
