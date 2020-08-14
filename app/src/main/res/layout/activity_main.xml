@@ -1,62 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:orientation="vertical">
 
-    <TextView
-        style="@style/TitleName"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <!--dataBinding is used, so the entire ViewGroup is now under one layout-->
+    <!--This layout doesn't have a separate ID but enables dataBinding -->
+    <data> </data>
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/title_name" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:inputType="text"
-        android:autofillHints="jay"
-        android:id="@+id/editName"
-        android:hint="@string/EditTextHint"/>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/done"
-        android:id= "@+id/doneButton"
-        android:layout_gravity="center_horizontal"/>
-
-    <TextView
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:text=""
-        android:id= "@+id/nameText"
-        android:layout_gravity="center_horizontal"/>
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat = "@android:drawable/btn_star_big_on"
-        style="@style/bigStarOn"
-        android:contentDescription="@string/star" />
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <LinearLayout
+        <TextView
+            style="@style/TitleName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="16dp">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/bio"
-                android:lineSpacingMultiplier="1.2"/>
-            <!--lineSpacingMultiplier manager spaces b/w lines -->
-        </LinearLayout>
-    </ScrollView>
+            android:text="@string/title_name" />
 
-</LinearLayout>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:inputType="text"
+            android:autofillHints="jay"
+            android:id="@+id/editName"
+            android:hint="@string/EditTextHint" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/done"
+            android:id="@+id/doneButton"
+            android:layout_gravity="center_horizontal" />
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text=""
+            android:id="@+id/nameText"
+            android:layout_gravity="center_horizontal" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@android:drawable/btn_star_big_on"
+            style="@style/bigStarOn"
+            android:contentDescription="@string/star" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/bio"
+                    android:lineSpacingMultiplier="1.2" />
+                <!--lineSpacingMultiplier manager spaces b/w lines -->
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</layout>

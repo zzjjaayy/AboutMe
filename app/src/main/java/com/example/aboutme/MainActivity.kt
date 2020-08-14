@@ -5,31 +5,38 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.InputMethodManager
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
+import androidx.databinding.DataBindingUtil
+import com.example.aboutme.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityMainBinding
+    // this is a private variable initialised in onCreate
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        // need to add this instead of just setContentView
 
-        findViewById<Button>(R.id.doneButton).setOnClickListener {
+        binding.doneButton.setOnClickListener {
             addName(it)
         }
-        // calls a click listener directly on the button and calling the click handler inside the lambda fn.
+        // the button is now called directly with the "binding" var.
     }
 
     private fun addName(view:View) {
-        val editText = findViewById<EditText>(R.id.editName)
-        val nameText = findViewById<TextView>(R.id.nameText)
 
-        nameText.text = editText.text
-        // sets the nameText value to edit text input
-        view.visibility = View.GONE
-        editText.visibility = View.GONE
-        // hide the button and edit text field
-        nameText.visibility = View.VISIBLE
+        binding.apply {
+            nameText.text = editName.text
+            invalidateAll()
+            editName.visibility = View.GONE
+            doneButton.visibility = View.GONE
+
+            nameText.visibility = View.VISIBLE
+        }
+        // this is an "apply" fn which lets you in this case, call all view w/o the "binding" var.
+        // all the views are directly called with the id given in the XML Layout
+        // invalidateAll function clears the data in the views.
 
         // Hide the keyboard.
         val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
