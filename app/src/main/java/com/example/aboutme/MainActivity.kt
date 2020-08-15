@@ -10,13 +10,28 @@ import com.example.aboutme.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
+    /**
+     * NOTE: THIS COMMIT HAS IMPLEMENTED DATA BINDING W/ A DATA CLASS.
+     * The data class is called in the xml's data tag and values of TextViews are set from it.
+     * Then an instance of the data class is made in the main activity where only the "nickname" is set
+     * and the other one is just left to set as default.
+     * the "name" is set from the edit text.
+     */
+
     private lateinit var binding: ActivityMainBinding
     // this is a private variable initialised in onCreate
+
+    private var myName:MyName = MyName(nickname = "Anything")
+    //created an instance of the data class
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         // need to add this instead of just setContentView
+
+        binding.jay = myName
+        // calling the data in the XML and setting its value to a new instance of the "MyName" data class
+        // this will bind the data to the views
 
         binding.doneButton.setOnClickListener {
             addName(it)
@@ -27,7 +42,8 @@ class MainActivity : AppCompatActivity() {
     private fun addName(view:View) {
 
         binding.apply {
-            nameText.text = editName.text
+            jay?.name = editName.text.toString()
+            // setting the name parameter of the data in XML from the editText.
             invalidateAll()
             editName.visibility = View.GONE
             doneButton.visibility = View.GONE

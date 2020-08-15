@@ -4,7 +4,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <!--dataBinding is used, so the entire ViewGroup is now under one layout-->
     <!--This layout doesn't have a separate ID but enables dataBinding -->
-    <data> </data>
+    <data>
+        <variable
+            name="jay"
+            type="com.example.aboutme.MyName" />
+    </data>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -36,9 +40,10 @@
         <TextView
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:text=""
+            android:text="@={jay.name}"
             android:id="@+id/nameText"
             android:layout_gravity="center_horizontal" />
+        <!--Added reference to Data Class through the data tag above -->
 
         <ImageView
             android:layout_width="wrap_content"
@@ -47,22 +52,11 @@
             style="@style/bigStarOn"
             android:contentDescription="@string/star" />
 
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="16dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/bio"
-                    android:lineSpacingMultiplier="1.2" />
-                <!--lineSpacingMultiplier manager spaces b/w lines -->
-            </LinearLayout>
-        </ScrollView>
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="@={jay.nickname}"
+            android:id="@+id/nickNameText"
+            android:layout_gravity="center_horizontal" />
     </LinearLayout>
 </layout>
