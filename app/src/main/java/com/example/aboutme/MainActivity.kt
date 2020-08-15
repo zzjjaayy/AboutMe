@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity() {
         }
         // this is an "apply" fn which lets you in this case, call all view w/o the "binding" var.
         // all the views are directly called with the id given in the XML Layout
-        // invalidateAll function clears the data in the views.
+        // invalidateAll function invalidates all the view bindings and has to request a new one next time.
 
         // Hide the keyboard.
         val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
